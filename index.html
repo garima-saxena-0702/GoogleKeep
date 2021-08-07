@@ -12,7 +12,52 @@
 <body>
     <div class="container">
         <div class="header">
-            <button>Toggle</button>
+            <button class="iconButton"><i data-feather="menu"></i></button>
+            <img class="main-icon" src="./images/googleKeep.png" alt="Keep icon">
+            <p class="title">Keep</p>
+            <div class="searchBox">
+                <div class="iconButton">
+                    <i data-feather="search"></i>
+                </div>
+                <input class="searchInput" type="text" placeholder="Search">
+                <button class="iconButton"><i data-feather="x"></i></button>
+            </div>
+            <div class="features">
+                <button class="iconButton"><i data-feather="refresh-cw"></i></button>
+                <button class="iconButton"><i data-feather="grid"></i></button>
+                <button class="iconButton"><i data-feather="list"></i></button>
+                <button class="iconButton"><i data-feather="settings"></i></button>
+            </div>
+            <div>
+                <button class="profilePic">
+                    <img src="./images/iron_man.png" alt="profile pic" height="100%" width="100%" style="border-radius: 50%;">
+                </button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sidenav">
+                <div id="notes" class="options" onclick="changeOption('notes')" >
+                    <button class="iconButton"><i data-feather="book-open"></i></button>
+                    <p>Notes</p>
+                </div>
+                <div id="reminders" class="options" onclick="changeOption('reminders')" >
+                    <button class="iconButton"><i data-feather="bell"></i></button>
+                    <p>Reminders</p>
+                </div>
+                <div id="editLabels" class="options" onclick="changeOption('editLabels')" >
+                    <button class="iconButton"><i data-feather="tag"></i></button>
+                    <p>Edit Labels</p>
+                </div>
+                <div id="archive" class="options" onclick="changeOption('archive')" >
+                    <button class="iconButton"><i data-feather="archive"></i></button>
+                    <p>Archive</p>
+                </div>
+                <div id="trash" class="options" onclick="changeOption('trash')" >
+                    <button class="iconButton"><i data-feather="trash-2"></i></button>
+                    <p>Trash</p>
+                </div>
+            </div>
+            <div class="data-container"></div>
         </div>
     </div>
 </body>
