@@ -29,9 +29,10 @@
                 <button class="iconButton"><i data-feather="settings"></i></button>
             </div>
             <div>
-                <button class="profilePic">
-                    <img src="./images/iron_man.png" alt="profile pic" height="100%" width="100%" style="border-radius: 50%;">
+                <button class="profilePic" onclick="openProfile()">
+                    <img id="profile" alt="profile pic" height="100%" width="100%" style="border-radius: 50%;">
                 </button>
+                <p id="name">Iron Man</p>
             </div>
         </div>
         <div class="main">
@@ -57,7 +58,11 @@
                     <p>Trash</p>
                 </div>
             </div>
-            <div class="data-container"></div>
+            <div class="data-container">
+                <div id="notes-data">
+
+                </div>
+            </div>
         </div>
     </div>
 </body>

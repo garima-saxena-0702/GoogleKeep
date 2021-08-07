@@ -74,6 +74,15 @@ body {
     margin-right: 3em;
 }
 
+#name {
+    border: 1px solid;
+    position: absolute;
+    padding: 5px;
+    top: 2.5em;
+    display: none;
+    background-color: white;
+}
+
 .main {
     display: flex;
 }
