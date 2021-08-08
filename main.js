@@ -128,49 +128,65 @@ function myNotes(noteData) {
         let card = document.createElement('div');
         card.classList = ['myCard'];
         let cardHeadDiv = document.createElement('div');
+        //title
         let title = document.createElement('p');
         title.innerHTML = note.title;
         let btnDiv = document.createElement('div');
-        let deleteBtn = document.createElement('button');
+        let deleteBtn = document.createElement('button'); //delete function
         deleteBtn.classList = ['iconButton'];
-        deleteBtn.innerHTML = 'Delete' + '<i data-feather="trash"></i>';
-        deleteBtn.onclick = deleteNote;
-        let editBtn = document.createElement('button');
+        deleteBtn.innerHTML = '<i data-feather="trash"></i>';
+        deleteBtn.onclick = () => {deleteNote(note.id);};
+        let saveBtn = document.createElement('button'); //save Edit function
+        saveBtn.id = 'save' + note.id;
+        saveBtn.classList = ['iconButton'];
+        saveBtn.innerHTML = '<i data-feather="save"></i>';
+        saveBtn.onclick = () => {saveNote(note.id);};
+        saveBtn.style.display = 'none';
+        let editBtn = document.createElement('button'); //edit function
         editBtn.classList = ['iconButton'];
-        editBtn.innerHTML = 'edit' + '<i data-feather="edit"></i>';
-        editBtn.onclick = editNote;
+        editBtn.innerHTML = '<i data-feather="edit-2"></i>';
+        editBtn.onclick = () => {editNote(note.id);};
+        btnDiv.append(saveBtn);
         btnDiv.append(editBtn);
         btnDiv.append(deleteBtn);
-        cardHeadDiv.style.padding = '0.5em';
         cardHeadDiv.classList = ['spaceBtwn'];
         cardHeadDiv.append(title);
         cardHeadDiv.append(btnDiv);
+        //data
         let data = document.createElement('textarea');
-        data.style.padding = '0.5em';
-        data.style.margin = '0';
         data.innerHTML = note.data;
         data.classList = ['data'];
         data.disabled = true;
         data.id = note.id;
         data.style.background = note.color;
+        //label
         let label = document.createElement('div');
         label.classList = ['main'];
-        label.innerHTML = note.label
+        label.innerHTML = note.label;
+        
         card.append(cardHeadDiv);
         card.append(data);
         card.append(label);
         card.style.background = note.color;
         document.getElementById('myNotes').append(card);
     });
+    feather.replace();
 }
 
-function deleteNote() {
-    notes = notes.filter(x => x.id != note.id);
+function deleteNote(id) {
+    notes = notes.filter(x => x.id != id);
     myNotes(notes);
 }
 
-function editNote() {
-    document.getElementById(note.id).disabled = false;
+function editNote(id) {
+    document.getElementById(id).disabled = false;
+    document.getElementById('save'+id).style.display = 'inline';
+}
+
+function saveNote(id) {
+    notes.filter(x => x.id == id).data = document.getElementById(id).value;
+    document.getElementById('save'+id).style.display = 'none';
+    document.getElementById(id).disabled = true;
 }
 
 function searchLabels() {
