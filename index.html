@@ -19,8 +19,8 @@
                 <div class="iconButton">
                     <i data-feather="search"></i>
                 </div>
-                <input class="searchInput" type="text" placeholder="Search">
-                <button class="iconButton"><i data-feather="x"></i></button>
+                <input onkeyup="searchLabels()" id="searchLabel" class="searchInput" type="text" placeholder="Search">
+                <button class="iconButton" onclick="clearSearch()"><i data-feather="x"></i></button>
             </div>
             <div class="features">
                 <button class="iconButton"><i data-feather="refresh-cw"></i></button>
@@ -32,36 +32,76 @@
                 <button class="profilePic" onclick="openProfile()">
                     <img id="profile" alt="profile pic" height="100%" width="100%" style="border-radius: 50%;">
                 </button>
-                <p id="name">Iron Man</p>
+                <p id="name"></p>
             </div>
         </div>
         <div class="main">
             <div class="sidenav">
                 <div id="notes" class="options" onclick="changeOption('notes')" >
-                    <button class="iconButton"><i data-feather="book-open"></i></button>
+                    <button class="iconButton iconSpace"><i data-feather="book-open"></i></button>
                     <p>Notes</p>
                 </div>
                 <div id="reminders" class="options" onclick="changeOption('reminders')" >
-                    <button class="iconButton"><i data-feather="bell"></i></button>
+                    <button class="iconButton iconSpace"><i data-feather="bell"></i></button>
                     <p>Reminders</p>
                 </div>
                 <div id="editLabels" class="options" onclick="changeOption('editLabels')" >
-                    <button class="iconButton"><i data-feather="tag"></i></button>
+                    <button class="iconButton iconSpace"><i data-feather="tag"></i></button>
                     <p>Edit Labels</p>
                 </div>
                 <div id="archive" class="options" onclick="changeOption('archive')" >
-                    <button class="iconButton"><i data-feather="archive"></i></button>
+                    <button class="iconButton iconSpace"><i data-feather="archive"></i></button>
                     <p>Archive</p>
                 </div>
                 <div id="trash" class="options" onclick="changeOption('trash')" >
-                    <button class="iconButton"><i data-feather="trash-2"></i></button>
+                    <button class="iconButton iconSpace"><i data-feather="trash-2"></i></button>
                     <p>Trash</p>
                 </div>
             </div>
-            <div class="data-container">
+            <div id="data-container" class="data-container">
                 <div id="notes-data">
-
+                    <div class="add-div">
+                        <div class="add-note">
+                            <input class="searchInput" id="searchInput" type="text" placeholder="Take a note..." onclick="addNote()">
+                            <div id="note-options">
+                                <button class="iconButton"><i data-feather="check-square"></i></button>
+                                <button class="iconButton"><i data-feather="edit"></i></button>
+                                <button class="iconButton"><i data-feather="image"></i></button>
+                            </div>
+                            <div id="card">
+                                <div style="display: flex;">
+                                    <input class="searchInput" class="cardTitle" id="cardTitle" type="text" placeholder="Title">
+                                    <button class="iconButton" onclick="createNote()"><i data-feather="plus"></i></button>
+                                </div>
+                                <textarea name="cardData" id="cardData" cols="30" rows="10" placeholder="Take a note..."></textarea>
+                                <div id="tagDiv" style="display: flex;"></div>
+                                <div style="display: flex;">
+                                    <button id="addLabel" class="iconButton" onclick="addLabel()"><i data-feather="edit"></i></button>
+                                    <p id="addLabelHover">Add Label</p>
+                                    <button id="addColor" class="iconButton" onclick="addColor()"><i data-feather="instagram"></i></button>
+                                    <p id="addColorHover">Add Color</p>
+                                    <button id="addImage" class="iconButton" onclick="addImage()"><i data-feather="image"></i></button>
+                                    <p id="addImageHover">Add Image</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="labelCard">
+                            <label>Label Note</label>
+                            <button class="iconButton" onclick="closeLabelCard()"><i data-feather="x"></i></button>
+                            <div><input id="labelNote" type="text" onkeyup="labelChange()"></div>
+                            <div>
+                                <button id="addLabelBtn" onclick="addLabelData()">Create</button>
+                            </div>
+                        </div>
+                        <div id="colorCard">
+                            <button class="color whiteColor" onclick="changeColor('white')"></button>
+                            <button class="color lavenderColor" onclick="changeColor('lavender')"></button>
+                            <button class="color peachColor" onclick="changeColor('peachpuff')"></button>
+                        </div>
+                    </div>
+                    <div id="myNotes"></div>
                 </div>
+                <div id="other-data"></div>
             </div>
         </div>
     </div>

@@ -58,6 +58,7 @@ body {
     outline: none;
     width: 100%;
     font-size: 1em;
+    margin-left: 1em;
 }
 
 .features {
@@ -87,8 +88,17 @@ body {
     display: flex;
 }
 
+.spaceBtwn {
+    display: flex;
+    justify-content: space-between;
+}
+
 .sidenav {
-    width: 15%
+    width: 20%
+}
+
+.iconSpace {
+    margin-right: 1em;
 }
 
 .options {
@@ -107,4 +117,126 @@ body {
 
 .selected-option {
     background-color: #feefc3;
+}
+
+#other-data {
+    display: none;
+}
+
+.data-container {
+    width: 100%;
+    height: 100%;
+    padding-left: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.add-note {
+    display: flex;
+    border: 1px solid lightgray;
+    width: 88vh;
+    height: auto;
+    border-radius: 10px;
+    margin: 1em;
+    box-shadow: 0 0 2px 2px lightgray;
+    -moz-box-shadow: 0 0 2px 2px lightgray;
+    -webkit-box-shadow: 0 0 2px 2px lightgray;
+}
+
+#note-options {
+    display: flex;
+}
+
+#card {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#cardData {
+    border: none;
+    outline: none;
+    width: 96%;
+    padding: 10px;
+    resize: none;
+}
+
+#addLabelHover, #addColorHover, #addImageHover {
+    display: none;
+    border: 1px solid;
+    position: absolute;
+    padding: 5px;
+    top: 21em;
+    background-color: white;
+}
+
+#labelCard {
+    display: none;
+    border: 1px solid lightgray;
+    width: 13%;
+    padding: 5px;
+    position: absolute;
+    top: 21em;
+    background: white;
+}
+
+#addLabelBtn {
+    border: none;
+    outline: none;
+    background: white;
+    cursor: pointer;
+}
+
+.tagLabel {
+    background: lightgray;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 2em;
+}
+
+#colorCard {
+    display: none;
+    border: 1px solid lightgray;
+    width: 9%;
+    padding: 5px;
+    position: absolute;
+    top: 21em;
+    background: white;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: 1px solid;
+}
+
+.whiteColor {
+    background: white;
+}
+
+.lavenderColor {
+    background: lavender;
+}
+
+.peachColor {
+    background: peachpuff;
+}
+
+.myCard {
+    border: 1px solid lightgray;
+    box-shadow: 0 0 2px 2px lightgrey;
+    -moz-box-shadow: 0 0 2px 2px lightgray;
+    -webkit-box-shadow: 0 0 2px 2px lightgrey;
+    height: auto;
+    border-radius: 10px;
+    margin: 1em;
+}
+
+.data {
+    width: 96%;
+    border: none;
+    resize: none;
+    outline: none;
 }
