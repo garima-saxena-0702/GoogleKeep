@@ -63,17 +63,12 @@
                     <div class="add-div">
                         <div class="add-note">
                             <input class="searchInput" id="searchInput" type="text" placeholder="Take a note..." onclick="addNote()">
-                            <div id="note-options">
-                                <button class="iconButton"><i data-feather="check-square"></i></button>
-                                <button class="iconButton"><i data-feather="edit"></i></button>
-                                <button class="iconButton"><i data-feather="image"></i></button>
-                            </div>
                             <div id="card">
-                                <div style="display: flex;">
+                                <div id="titleHeader" style="display: flex;">
                                     <input class="searchInput" class="cardTitle" id="cardTitle" type="text" placeholder="Title">
                                     <button class="iconButton" onclick="createNote()"><i data-feather="plus"></i></button>
                                 </div>
-                                <textarea name="cardData" id="cardData" cols="30" rows="10" placeholder="Take a note..."></textarea>
+                                <textarea name="cardData" id="cardData" cols="30" rows="5" placeholder="Take a note..."></textarea>
                                 <div id="tagDiv" style="display: flex;"></div>
                                 <div style="display: flex;">
                                     <button id="addLabel" class="iconButton" onclick="addLabel()"><i data-feather="edit"></i></button>
@@ -82,6 +77,9 @@
                                     <p id="addColorHover">Add Color</p>
                                     <button id="addImage" class="iconButton" onclick="addImage()"><i data-feather="image"></i></button>
                                     <p id="addImageHover">Add Image</p>
+                                    <input id="file-input" accept="image/*" type="file" name="name" style="position:absolute;top:-100px;" />
+                                    <button id="addList" class="iconButton" onclick="addList()"><i data-feather="check-square"></i></button>
+                                    <p id="addListHover">Add List</p>
                                 </div>
                             </div>
                         </div>

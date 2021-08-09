@@ -5,9 +5,9 @@ let userDetails = {
 }
 let labels = [];
 let notes = [];
+let fileInput = document.getElementById('file-input');
 
 function initApp() {
-    console.log("in initApp")
     feather.replace();
     document.getElementById(currentOption).classList.add("selected-option");
     let user = getUserData();
@@ -21,12 +21,15 @@ function initApp() {
     let addLabel = document.getElementById('addLabel');
     let addColor = document.getElementById('addColor');
     let addImage = document.getElementById('addImage');
+    let addList = document.getElementById('addList');
     addLabel.onmouseover = () => { document.getElementById('addLabelHover').style.display = 'block'}
     addColor.onmouseover = () => { document.getElementById('addColorHover').style.display = 'block'}
     addImage.onmouseover = () => { document.getElementById('addImageHover').style.display = 'block'}
+    addList.onmouseover = () => { document.getElementById('addListHover').style.display = 'block'}
     addLabel.onmouseout = () => { document.getElementById('addLabelHover').style.display = 'none'}
     addColor.onmouseout = () => { document.getElementById('addColorHover').style.display = 'none'}
     addImage.onmouseout = () => { document.getElementById('addImageHover').style.display = 'none'}
+    addList.onmouseout = () => { document.getElementById('addListHover').style.display = 'none'}
 }
 
 function changeOption(id) {
@@ -59,7 +62,7 @@ function getUserData() {
 
 function addNote() {
     document.getElementById('searchInput').style.display = 'none';
-    document.getElementById('note-options').style.display = 'none';
+    // document.getElementById('note-options').style.display = 'none';
     document.getElementById('card').style.display = 'block';
 }
 
@@ -100,6 +103,7 @@ function createNote() {
         data: document.getElementById('cardData').value,
         label: document.getElementById('tagDiv').innerHTML,
         id: Math.random()*100,
+        file: [],
         color: document.getElementById('card').style.backgroundColor ? document.getElementById('card').style.backgroundColor : 'white'
     }
     notes.push(note);
@@ -196,5 +200,21 @@ function searchLabels() {
     myNotes(noteData)
 }
 
+function addImage() {
+    fileInput.click();
+}
+
+fileInput.onchange = function(e) {
+    const [file] = fileInput.files
+    let upload = document.createElement('img');
+    upload.id = "upload";
+    upload.alt = "Uploaded Image";
+    upload.style.width = "100%";
+    if (file) {
+        upload.src = URL.createObjectURL(file)
+    }
+    let titleHeader = document.getElementById('titleHeader');
+    titleHeader.parentNode.insertBefore(upload, titleHeader.nextSibling)
+}
+
 initApp();
-console.log("in main.js")
