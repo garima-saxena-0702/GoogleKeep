@@ -7,6 +7,7 @@ let labels = [];
 let notes = [];
 
 function initApp() {
+    console.log("in initApp")
     feather.replace();
     document.getElementById(currentOption).classList.add("selected-option");
     let user = getUserData();
@@ -196,3 +197,4 @@ function searchLabels() {
 }
 
 initApp();
+console.log("in main.js")
