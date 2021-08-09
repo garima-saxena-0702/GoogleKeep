@@ -185,7 +185,7 @@ function editNote(id) {
 }
 
 function saveNote(id) {
-    notes.filter(x => x.id == id).data = document.getElementById(id).value;
+    notes.filter(x => x.id == id)[0].data = document.getElementById(id).value;
     document.getElementById('save'+id).style.display = 'none';
     document.getElementById(id).disabled = true;
 }
