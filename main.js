@@ -117,7 +117,10 @@ function clearNoteCard() {
     document.getElementById('tagDiv').innerHTML = "";
     document.getElementById('card').style.display = 'none';
     document.getElementById('searchInput').style.display = 'block';
-    document.getElementById('note-options').style.display = 'flex';
+    document.getElementById('cardTitle').style.backgroundColor = 'white';
+    document.getElementById('cardData').style.backgroundColor = 'white';
+    document.getElementById('card').style.backgroundColor = 'white';
+    // document.getElementById('note-options').style.display = 'flex';
 }
 
 function changeColor(color) {
@@ -195,8 +198,11 @@ function saveNote(id) {
 }
 
 function searchLabels() {
-    let val = document.getElementById('searchLabel').value
-    noteData = notes.filter(x => x.label.slice(20, x.label.length - 4).includes(val));
+    let val = document.getElementById('searchLabel').value;
+    let noteData = [];
+    // noteData = notes.filter(x => x.label.slice(20, x.label.length - 4).includes(val));
+    noteData = notes.filter(x =>  x.title.includes(val) || (x.label.slice(20, x.label.length - 4).includes(val)))
+    // .map( y => noteData.push(y));
     myNotes(noteData)
 }
 

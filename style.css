@@ -235,7 +235,7 @@ body {
     height: auto;
     border-radius: 10px;
     margin: 1em;
-    width: 35%;
+    width: 30%;
 }
 
 .data {
@@ -245,4 +245,9 @@ body {
     outline: none;
     padding: 0.5em;
     margin: 0;
+}
+
+#myNotes {
+    display: flex;
+    flex-wrap: wrap;
 }
