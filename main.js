@@ -98,12 +98,13 @@ function addLabelData() {
 }
 
 function createNote() {
+    let imageCard = [...document.getElementById('imageCard').children];
     note = {
         title: document.getElementById('cardTitle').value,
         data: document.getElementById('cardData').value,
         label: document.getElementById('tagDiv').innerHTML,
         id: Math.random()*100,
-        file: [],
+        file: imageCard,
         color: document.getElementById('card').style.backgroundColor ? document.getElementById('card').style.backgroundColor : 'white'
     }
     notes.push(note);
@@ -120,7 +121,10 @@ function clearNoteCard() {
     document.getElementById('cardTitle').style.backgroundColor = 'white';
     document.getElementById('cardData').style.backgroundColor = 'white';
     document.getElementById('card').style.backgroundColor = 'white';
-    // document.getElementById('note-options').style.display = 'flex';
+    let imageCard = document.getElementById('imageCard');
+    while (imageCard.hasChildNodes()) {
+        imageCard.removeChild(imageCard.lastChild);
+    }
 }
 
 function changeColor(color) {
@@ -160,6 +164,16 @@ function myNotes(noteData) {
         cardHeadDiv.classList = ['spaceBtwn'];
         cardHeadDiv.append(title);
         cardHeadDiv.append(btnDiv);
+        card.append(cardHeadDiv);
+        //images
+        if(note.file.length > 0) {
+            let imageCard = document.createElement('div');
+            note.file.map(i => {
+                imageCard.append(i);
+            })
+            imageCard.style.display = 'flex';
+            card.append(imageCard);
+        }
         //data
         let data = document.createElement('textarea');
         data.innerHTML = note.data;
@@ -167,13 +181,11 @@ function myNotes(noteData) {
         data.disabled = true;
         data.id = note.id;
         data.style.background = note.color;
+        card.append(data);
         //label
         let label = document.createElement('div');
         label.classList = ['main'];
         label.innerHTML = note.label;
-        
-        card.append(cardHeadDiv);
-        card.append(data);
         card.append(label);
         card.style.background = note.color;
         document.getElementById('myNotes').append(card);
@@ -211,16 +223,20 @@ function addImage() {
 }
 
 fileInput.onchange = function(e) {
+    const imageCard = document.getElementById('imageCard');
     const [file] = fileInput.files
     let upload = document.createElement('img');
-    upload.id = "upload";
+    // upload.id = "upload";
     upload.alt = "Uploaded Image";
-    upload.style.width = "100%";
     if (file) {
         upload.src = URL.createObjectURL(file)
     }
-    let titleHeader = document.getElementById('titleHeader');
-    titleHeader.parentNode.insertBefore(upload, titleHeader.nextSibling)
+    imageCard.append(upload);
+    imageCard.style.display = 'flex';
+    const widthPer = (100/imageCard.children.length)
+    for(let i of imageCard.children) {
+        i.style.width = widthPer+'%';
+    }
 }
 
 initApp();
