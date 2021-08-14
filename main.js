@@ -223,19 +223,18 @@ function addImage() {
 }
 
 fileInput.onchange = function(e) {
-    const imageCard = document.getElementById('imageCard');
     const [file] = fileInput.files
-    let upload = document.createElement('img');
-    // upload.id = "upload";
-    upload.alt = "Uploaded Image";
     if (file) {
+        const imageCard = document.getElementById('imageCard');
+        let upload = document.createElement('img');
+        upload.alt = "Uploaded Image";
         upload.src = URL.createObjectURL(file)
-    }
-    imageCard.append(upload);
-    imageCard.style.display = 'flex';
-    const widthPer = (100/imageCard.children.length)
-    for(let i of imageCard.children) {
-        i.style.width = widthPer+'%';
+        imageCard.append(upload);
+        imageCard.style.display = 'flex';
+        const widthPer = (100/imageCard.children.length)
+        for(let i of imageCard.children) {
+            i.style.width = widthPer+'%';
+        }
     }
 }
 
